@@ -15,11 +15,12 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 ENV["RACK-ENV"] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+# require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require './app/app.rb'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-require './app/model/link'
+# require './app/model/link'
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
