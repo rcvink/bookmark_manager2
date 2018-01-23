@@ -1,6 +1,7 @@
 
 # require './lib/link.rb'
 require 'sinatra/base'
+require 'data_mapper'
 
 class Bookmark < Sinatra::Base
 

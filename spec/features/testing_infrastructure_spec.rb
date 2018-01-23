@@ -1,4 +1,4 @@
-# require 'link'
+# require './app/model/link.rb'
 
 feature 'viewing links' do
     Link.create(url: "www.bbc.co.uk", title: "bbc homepage")

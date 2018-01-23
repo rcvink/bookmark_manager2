@@ -19,7 +19,7 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-
+require './app/model/link'
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
