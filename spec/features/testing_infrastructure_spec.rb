@@ -1,8 +1,8 @@
 # require './app/model/link.rb'
 
 feature 'viewing links' do
-    Link.create(url: "www.bbc.co.uk", title: "bbc homepage")
     scenario 'upon visiting the links page, see a list of links' do
+      Link.create(url: "www.bbc.co.uk", title: "bbc homepage")
 
       visit('/links')
 

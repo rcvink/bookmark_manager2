@@ -20,8 +20,12 @@ require './app/app.rb'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'database_cleaner'
 # require './app/model/link'
 
+DatabaseCleaner.clean_with :truncation
+
+DatabaseCleaner.strategy = :transaction
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -34,6 +38,19 @@ Capybara.app = Bookmark
 
 
 RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
