@@ -8,12 +8,12 @@ gem 'rake'
 gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'pry'
+gem 'database_cleaner'
 
 group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop'
-  gem 'database_cleaner'
   gem 'dm-transactions'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
