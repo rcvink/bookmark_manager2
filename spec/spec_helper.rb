@@ -14,7 +14,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
- ENV["RACK-ENV"] = 'test'
+ ENV["RACK_ENV"] = 'test'
 
 
 # require File.join(File.dirname(__FILE__), '..', 'app.rb')
