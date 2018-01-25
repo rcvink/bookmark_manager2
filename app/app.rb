@@ -30,7 +30,8 @@ class Bookmark < Sinatra::Base
 
   get '/tags/:tag' do
     @bookmarks = Link.all(Link.tags.tag => params[:tag])
-    p @bookmarks
+    # my_link = Link.all(Link.tags.tag => params[:tag]).first
+    # p my_link.tags[0].tag
     erb :links
   end
 

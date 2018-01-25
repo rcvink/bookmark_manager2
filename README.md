@@ -19,3 +19,6 @@ As a user
 So that I can see similar websites
 I would like to filter my bookmarks by tag
 ```
+
+<!-- Tag:   <% bm.tags.each { |this_tag| %> <%= this_tag.tag %> <% } %> -->
+<!-- Tag:   <% bm.tags.first%> <%=.tag %> -->
