@@ -1,5 +1,7 @@
 <h1> Bookmarks </h1>
 
+<h2>Welcome, <%= @current_user_email %> to the Bookmarks Manager</h2>
+
 <ul id='links'>
   <% @bookmarks.each do |bm| %>
     <li>
@@ -9,3 +11,6 @@
     </li>
   <% end %>
 </ul>
+
+<p>You're the visitor number: <%= User.all.count %></p>
+<!-- <a href="/new_link">link text</a> -->

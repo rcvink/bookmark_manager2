@@ -6,8 +6,5 @@ class Link
   property :url,    String
 
   has n, :tags, :through => Resource
+  belongs_to :user, :required => true
 end
-
-# DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
-# DataMapper.finalize
-# DataMapper.auto_upgrade!

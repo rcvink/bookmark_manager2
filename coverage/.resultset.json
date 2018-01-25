@@ -21,7 +21,7 @@
         1,
         1,
         1,
-        1,
+        0,
         null,
         null
       ],
@@ -50,6 +50,42 @@
         null,
         null
       ],
+      "/Users/giadasim/Documents/code/makers/week4/bookmark_manager2/spec/features/login_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/giadasim/Documents/code/makers/week4/bookmark_manager2/spec/features/testing_infrastructure_spec.rb": [
         null,
         null,
@@ -68,6 +104,6 @@
         null
       ]
     },
-    "timestamp": 1516895023
+    "timestamp": 1516903463
   }
 }

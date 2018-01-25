@@ -3,16 +3,20 @@ ENV["RACK_ENV"] ||= "development"
 require_relative 'data_mapper_setup'
 require 'rake'
 require './app/model/link'
+require './app/model/user'
 require 'sinatra/base'
 
 class Bookmark < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
-    "empty"
+    erb :index
   end
 
   get '/links'do
     @bookmarks = Link.all
+    @current_user_email = session[:email]
     erb :links
   end
 
@@ -30,6 +34,13 @@ class Bookmark < Sinatra::Base
   get '/tags/:tag' do
     @bookmarks = Link.all(Link.tags.tag => params[:tag])
     erb :links
+  end
+
+  post '/login' do
+    user = User.create(email: params[:emai], password: params[:password])
+    session[:email] = params[:email]
+    user.save
+    redirect '/links'
   end
 
 run! if app_file == $0
