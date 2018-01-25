@@ -28,6 +28,11 @@ class Bookmark < Sinatra::Base
     redirect '/links'
   end
 
-run! if app_file == $0
+  get '/tags/:tag' do
+    @bookmarks = Link.all(Link.tags.tag => params[:tag])
+    p @bookmarks
+    erb :links
+  end
 
+run! if app_file == $0
 end
