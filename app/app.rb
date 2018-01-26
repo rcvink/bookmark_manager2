@@ -16,6 +16,7 @@ class Bookmark < Sinatra::Base
   end
 
   post '/login' do
+    redirect('/') unless params[:password] == params[:password_confirmation] 
     user = User.create(email: params[:email], password: params[:password])
     user.save
     session[:user_id] = user.id

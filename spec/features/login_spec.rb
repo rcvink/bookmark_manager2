@@ -1,26 +1,39 @@
 feature 'Sign up' do
-  scenario 'sign up redirects user to links page' do
+  before(:each) do
     visit('/')
     fill_in 'email', with: 'test@gmail.com'
     fill_in 'password', with: '0000'
-    click_button 'Submit'
-    expect(page).not_to have_content("Password")
   end
 
-  scenario 'user can see a welcome message and their email' do
-    visit('/')
-    fill_in 'email', with: 'test@gmail.com'
-    fill_in 'password', with: '0000'
-    click_button 'Submit'
-    expect(page).to have_content("Welcome, test@gmail.com to the Bookmarks Manager")
+  context 'successfully' do
+    before(:each) do
+      fill_in 'password_confirmation', with: '0000'
+      click_button 'Submit'
+    end
+
+    scenario 'sign up redirects user to links page' do
+      expect(page).not_to have_content("Password")
+    end
+
+    scenario 'user can see a welcome message and their email' do
+      expect(page).to have_content("Welcome, test@gmail.com to the Bookmarks Manager")
+    end
+
+    scenario 'user count is increased' do
+      expect(User.all.count).to eq(1)
+    end
   end
 
-  scenario 'user can see the user count' do
-    visit('/')
-    fill_in 'email', with: 'test@gmail.com'
-    fill_in 'password', with: '0000'
-    click_button 'Submit'
-    expect(User.all.count).to eq(1)
+  context 'unsuccessfully' do
+    before(:each) do
+      fill_in 'password_confirmation', with: '1111'
+      click_button 'Submit'
+    end
+
+    scenario 'user count is not increased' do
+      expect(User.all.count).to eq(0)
+    end
   end
+
 
 end

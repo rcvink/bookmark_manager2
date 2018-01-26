@@ -1,10 +1,12 @@
 feature 'adding tags' do
-  before(:each) { sign_up }
-
-  scenario 'add one tag to a link' do
+  before(:each) do
+    sign_up
     visit '/links/new'
     fill_in 'title', with: 'NASA'
     fill_in 'url', with: 'www.nasa.gov'
+  end
+
+  scenario 'add one tag to a link' do
     fill_in 'tag', with: 'science'
     click_button 'Submit'
     link = Link.first
@@ -12,9 +14,6 @@ feature 'adding tags' do
   end
 
   scenario 'add two tags to a link' do
-    visit '/links/new'
-    fill_in 'title', with: 'NASA'
-    fill_in 'url', with: 'www.nasa.gov'
     fill_in 'tag', with: 'science, physics'
     click_button 'Submit'
     link = Link.first
