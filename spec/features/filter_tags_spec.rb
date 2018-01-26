@@ -1,5 +1,6 @@
 feature 'tags' do
   scenario 'filter links by tag' do
+    sign_up
     visit '/links/new'
     fill_in 'title', with: 'soap'
     fill_in 'url', with: 'www.soap.org'

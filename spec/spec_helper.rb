@@ -16,14 +16,12 @@
 
  ENV["RACK_ENV"] = 'test'
 
-
-# require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require './app/app.rb'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
-# require './app/model/link'
+require_relative './features/web_helpers'
 
 DatabaseCleaner.clean_with :truncation
 

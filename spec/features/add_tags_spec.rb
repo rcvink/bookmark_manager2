@@ -1,5 +1,7 @@
 feature 'adding tags' do
-  scenario 'adding a tag to a link' do
+  before(:each) { sign_up }
+
+  scenario 'add one tag to a link' do
     visit '/links/new'
     fill_in 'title', with: 'NASA'
     fill_in 'url', with: 'www.nasa.gov'
@@ -9,7 +11,7 @@ feature 'adding tags' do
     expect(link.tags.map(&:tag)).to include('science')
   end
 
-  scenario 'adding mulptiple tags to a link' do
+  scenario 'add two tags to a link' do
     visit '/links/new'
     fill_in 'title', with: 'NASA'
     fill_in 'url', with: 'www.nasa.gov'

@@ -6,5 +6,5 @@ class Link
   property :url,    String
 
   has n, :tags, :through => Resource
-  belongs_to :user, :required => true
+  has 1, :user, :through => Resource
 end
