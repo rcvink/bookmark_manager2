@@ -5,5 +5,5 @@ class User
   property :email,    String
   property :password,    String
 
-  has n, :links, :through => Resource
+  # has n, :links, :through => Resource
 end

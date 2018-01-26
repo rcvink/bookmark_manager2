@@ -8,7 +8,7 @@ feature 'adding tags' do
     fill_in 'tag', with: 'science'
     click_button 'Submit'
     link = Link.first
-    expect(link.tags.map(&:tag)).to include('science')
+    expect(link.tags.map(&:label)).to include('science')
   end
 
   scenario 'add two tags to a link' do
@@ -18,7 +18,7 @@ feature 'adding tags' do
     fill_in 'tag', with: 'science, physics'
     click_button 'Submit'
     link = Link.first
-    expect(link.tags.map(&:tag)).to include('science')
-    expect(link.tags.map(&:tag)).to include('physics')
+    expect(link.tags.map(&:label)).to include('science')
+    expect(link.tags.map(&:label)).to include('physics')
   end
 end
