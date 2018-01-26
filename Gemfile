@@ -9,7 +9,6 @@ gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'pry'
 gem 'database_cleaner'
-gem 'rake'
 gem 'bcrypt'
 
 group :test do

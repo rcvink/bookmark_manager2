@@ -9,6 +9,7 @@ require 'sinatra/base'
 class Bookmark < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
     erb :index
@@ -44,7 +45,7 @@ class Bookmark < Sinatra::Base
 
   helpers do
     def current_user
-      User.get!(session[:user_id])
+      @current_user ||= User.get!(session[:user_id])
     end
   end
 
